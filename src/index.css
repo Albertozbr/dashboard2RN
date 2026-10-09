@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Paleta extraída das telas de referência (RV Commerce AI):
+  sidebar  #47A7DD → #34BAD9 · primária #3BA9E0 · azul forte (valores/links) #1E6FA8
+  fundo    #F2F7FA · cards #FFFFFF · prioridade alta #C2501F · conectado #16A34A
+*/
+@layer base {
+  :root {
+    --background: 204 38% 96%;        /* #F2F7FA */
+    --foreground: 210 22% 10%;        /* #141A1F */
+    --card: 0 0% 100%;
+    --card-foreground: 210 22% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 22% 10%;
+
+    --primary: 200 73% 55%;           /* #3BA9E0 */
+    --primary-foreground: 0 0% 100%;
+    --primary-strong: 205 70% 39%;    /* #1E6FA8 */
+    --primary-soft: 197 85% 94%;      /* #E6F6FD */
+
+    --secondary: 205 40% 95%;
+    --secondary-foreground: 205 70% 30%;
+    --muted: 205 33% 96%;
+    --muted-foreground: 204 9% 44%;   /* #65717A */
+    --accent: 197 85% 95%;
+    --accent-foreground: 205 70% 32%;
+
+    --destructive: 6 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 72% 33%;
+    --success-soft: 141 70% 94%;
+    --warning: 18 72% 44%;            /* #C2501F */
+    --warning-soft: 30 90% 94%;
+
+    --border: 205 30% 91%;
+    --input: 205 25% 86%;
+    --ring: 200 73% 55%;
+    --radius: 0.75rem;
+    --shadow: 210 40% 30%;
+
+    --sidebar-from: 201 69% 57%;      /* #47A7DD */
+    --sidebar-to: 191 69% 53%;        /* #34BAD9 */
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-muted: 200 80% 92%;
+    --sidebar-active: 0 0% 100%;
+
+    --chart-1: 200 66% 59%;           /* #50AADC — vendas */
+    --chart-2: 207 14% 52%;           /* linha tracejada — dia anterior */
+  }
+
+  .dark {
+    --background: 210 45% 7%;         /* #0A131B */
+    --foreground: 205 30% 94%;
+    --card: 209 40% 11%;              /* #111D27 */
+    --card-foreground: 205 30% 94%;
+    --popover: 209 40% 12%;
+    --popover-foreground: 205 30% 94%;
+
+    --primary: 199 78% 60%;           /* #4AB7EA */
+    --primary-foreground: 210 50% 8%;
+    --primary-strong: 198 85% 68%;    /* #6CC8F3 */
+    --primary-soft: 202 55% 18%;
+
+    --secondary: 208 33% 17%;
+    --secondary-foreground: 198 70% 82%;
+    --muted: 208 33% 15%;
+    --muted-foreground: 205 14% 62%;
+    --accent: 205 45% 18%;
+    --accent-foreground: 198 80% 85%;
+
+    --destructive: 4 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 60% 52%;
+    --success-soft: 145 40% 15%;
+    --warning: 24 90% 62%;
+    --warning-soft: 24 50% 16%;
+
+    --border: 208 30% 19%;
+    --input: 208 28% 24%;
+    --ring: 199 78% 60%;
+    --shadow: 210 60% 2%;
+
+    --sidebar-from: 204 62% 22%;      /* #15496A */
+    --sidebar-to: 194 66% 20%;        /* #11475A */
+    --sidebar-foreground: 200 40% 96%;
+    --sidebar-muted: 200 30% 75%;
+    --sidebar-active: 199 78% 60%;
+
+    --chart-1: 199 78% 60%;
+    --chart-2: 205 14% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "tnum" 0;
+  }
+  /* Transição suave ao trocar de tema */
+  body,
+  [data-slot="card"],
+  aside,
+  header {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(0 0% 100% / 0.45) transparent;
+  }
+}

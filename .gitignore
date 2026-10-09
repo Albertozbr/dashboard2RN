@@ -1,0 +1,9 @@
+node_modules
+dist
+*.local
+data/
+server/data/
+
+# não publicar
+referencias/
+_to_delete/
